@@ -3,11 +3,11 @@ import mongoose from 'mongoose';
 import { auth } from './routes/auth';
 import { mongoUrl } from './mongoUrl';
 import { posts } from './routes/posts';
-import { router } from './routes/router'
+import { users } from './routes/users'
 
 const app: express.Express = express()
 const PORT = 3000;
-const userRouter = router;
+const userUsers = users;
 const userAuth = auth;
 const userPosts = posts;
 
@@ -24,7 +24,8 @@ mongooseDataBase.connect(mongoUrl).then(() => {
 //ミドルウェア
 //server.tsと切り離すためにrouter.tsを使った。
 //routingが増え記述が多くなるため
-app.use("/api/users", userRouter);
+app.use(express.json());
+app.use("/api/users", userUsers);
 app.use("/api/auth", userAuth);
 app.use("/api/posts", userPosts);
 
