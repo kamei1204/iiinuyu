@@ -7,8 +7,8 @@ interface User {
     password      : String ;
     profileImage? : String ;
     coverImage?   : String ;
-    followers     : String ;
-    followings    : String ;
+    followers     : any ;
+    followings    : any ;
     isAdmin       : Boolean ;
     description   : String  ;
     city          : String  ;
@@ -46,7 +46,7 @@ interface User {
                 default : ""     ,
             },
             followers   : {
-                type   : Array  ,
+                type    : Array  ,
                 default : []     ,
             },
             followings  : {

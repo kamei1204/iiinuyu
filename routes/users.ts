@@ -39,6 +39,7 @@ users.get("/:id", async ( req:express.Request,res:express.Response ) => {
         try {
             const user = await User.findById(req.params.id);
             //分割代入で見られる必要のないデータを表示しないようにする
+            // const { password, ...other } = user?._doc;
             res.status(200).json(user);
         } catch (error) {
             res.status(500).json("アカウントが見つかりません")
